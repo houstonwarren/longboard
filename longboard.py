@@ -1,7 +1,5 @@
 # skateboard.py
 # DIY Electric Skateboard
-# Created by Matthew Timmons-Brown, The Raspberry Pi Guy
-# Simon Beal assisted with the development of this program - if I die, it is his fault.
 
 import pigpio
 import time
