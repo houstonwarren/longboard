@@ -34,10 +34,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // Print out the location to the console
+    // Print out the location & timestamp to the console
+    // Currently updated every second
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            // Print current location
             print(location.coordinate)
+            // Print current timestamp
+            print(NSDate())
         }
     }
     
