@@ -24,7 +24,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         
         // For use when the app is open
-        //locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
         // If location services is enabled get the users location
         if CLLocationManager.locationServicesEnabled() {
@@ -55,7 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Show the popup to the user if we have been deined access
     func showLocationDisabledPopUp() {
         let alertController = UIAlertController(title: "Background Location Access Disabled",
-                                                message: "In order to deliver pizza we need your location",
+                                                message: "In order to track your longboard we need your location",
                                                 preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
