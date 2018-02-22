@@ -10,11 +10,18 @@
 
 import UIKit
 import CoreLocation
+import Firebase
+import FirebaseCore
+import FirebaseDatabase
+import FirebaseAuth
+import <GeoFire/GeoFire.h>
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // Used to start getting the users location
     let locationManager = CLLocationManager()
+    
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +44,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Print out the location & timestamp to the console
     // Currently updated every second
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        ref = Database.database().reference()
+        
+        let val = [
+            "date": "today"
+        ]
+        
+        var geoFire = GeoFire(ref);
+        
+        geoFire.set("some_key", [37.785326, -122.405696]).then(function());
+        
+        
+        let update = ["electric-skateboard": geoFire]
+        
+        ref.updateChildValues(update)
+        
+        
         if let location = locations.first {
+            
             // Print current location
-            print(location.coordinate)
+            //print(location.coordinate)
             // Print current timestamp
-            print(NSDate())
+            //print(NSDate())
         }
     }
     
